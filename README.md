@@ -3,7 +3,7 @@
 Phonetic squat detection for Go — **reduce a label to a phonetic code and match on
 the sound, not the spelling**, so `fone`/`phone`, `kwik`/`quick`, `zoom`/`zoem` all
 collide. Pure Go, **zero dependencies**, embedded rule tables. echo is the
-**phonetic** third axis of the matcher family: `twist` measures edits, `unmask`
+**phonetic** third axis of the matcher family: `snare` measures edits, `unmask`
 folds glyph look-alikes, echo folds sound — the one axis no edit- or glyph-metric
 can reach, because a homophone can be spelled arbitrarily far from its target.
 
@@ -20,7 +20,7 @@ echo.Keys("Schmidt")               // ["XMT" "SMT"]   — the keys to index a br
 
 | Axis | Repo | Distance |
 |---|---|---|
-| edits | [`twist`](https://github.com/netstar-labs/twist) | Damerau-Levenshtein |
+| edits | [`snare`](https://github.com/netstar-labs/snare) | Damerau-Levenshtein |
 | glyphs | [`unmask`](https://github.com/netstar-labs/unmask) | UTS-39 skeleton |
 | **sound** | **`echo`** | **Double Metaphone / Soundex** |
 

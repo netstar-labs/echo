@@ -24,7 +24,7 @@ index a brand list by.
 ## Why the phonetic axis is its own thing
 
 The matcher family has three axes, and each one catches what the others cannot.
-`twist` measures **edits** — insert, delete, substitute, transpose — and catches
+`snare` measures **edits** — insert, delete, substitute, transpose — and catches
 `paypa1`, `gooogle`, `micros0ft`. `unmask` folds **glyphs** to a Unicode skeleton
 and catches `pаypаl` with a Cyrillic а. Neither can catch `fone`: it is three edits
 from `phone` (well past a typo budget) and every glyph is a legitimate Latin letter

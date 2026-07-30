@@ -119,5 +119,5 @@ echo does exact phonetic-key matching. If a consumer needs *graded* phonetic
 similarity (how close, not just same-or-not), the upgrade is a phonetic edit
 distance over the codes — deferred until then. Non-Latin phonetics need a
 language-specific coder (Kölner Phonetik, Beider-Morse), a separate axis. Edit
-distance and glyph confusables are out of scope by design — that is `twist` and
+distance and glyph confusables are out of scope by design — that is `snare` and
 `unmask`; see [architecture.md](architecture.md) § "Deliberately out (YAGNI)".

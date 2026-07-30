@@ -1,7 +1,7 @@
 // Package echo detects squats that *sound* alike but are edit-distance far —
 // fone/phone, kwik/quick, zoom/zoem — by reducing a label to a phonetic code and
 // matching on the code rather than the spelling. It is the phonetic third axis of
-// the netstar matcher family: twist measures edits, unmask folds glyph look-alikes
+// the netstar matcher family: snare measures edits, unmask folds glyph look-alikes
 // (the UTS-39 skeleton), and echo folds sound. A brand monitor scores a candidate
 // on all three and combines the terms; echo is the one no edit- or glyph-metric can
 // reach, because a homophone can be spelled arbitrarily far from its target.
