@@ -128,7 +128,7 @@ future upgrades rather than pre-built:
   are a separate axis, deferred until a non-Latin corpus needs them.
 - **No built-in Set type.** `Keys` is the indexing primitive; a consumer builds its
   own `map[string][]brand` bucket in three lines and owns its target projection and
-  normalisation, exactly as `twist` and `unmask` consumers do.
+  normalisation, exactly as `snare` and `unmask` consumers do.
 
 ## Consumer wiring (future work)
 

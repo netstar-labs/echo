@@ -5,7 +5,7 @@
 Metaphone codes (primary plus an optional secondary), `Soundex` returns standard
 NARA Soundex, `Sounds(a, b)` reports whether two labels share a phonetic code, and
 `Keys(s)` returns the codes to bucket a brand list by. It is the phonetic sibling of
-`twist` (edit distance) and `unmask` (glyph skeleton) — the same "reduce to a key,
+`snare` (edit distance) and `unmask` (glyph skeleton) — the same "reduce to a key,
 then match" shape, over sound instead of spelling.
 
 **Why it exists.** A homophone squat — `fone`/`phone`, `kwik`/`quick`,
@@ -43,7 +43,7 @@ raise recall at a steep cost in false positives, against the grain of a detector
 whose job is precision. `Soundex` remains exported for callers who want that
 bucketing on purpose.
 
-**What it is not.** Not an edit-distance metric (that is `twist`), not a glyph
+**What it is not.** Not an edit-distance metric (that is `snare`), not a glyph
 skeleton (that is `unmask`), not a resolver or classifier, and not — in v1 — a fuzzy
 phonetic *distance* or a non-Latin coder. It answers one question — do these share a
 phonetic code — and only that.
