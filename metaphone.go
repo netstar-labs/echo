@@ -1,6 +1,9 @@
 package echo
 
-import "strings"
+import (
+	"bytes"
+	"strings"
+)
 
 // maxCode caps each Double Metaphone code at four characters — the canonical
 // length. The main loop also stops once both codes reach it.
@@ -27,7 +30,6 @@ func doubleMetaphone(w []byte) (primary, secondary string) {
 	var pri, sec strings.Builder
 	add := func(m string) { pri.WriteString(m); sec.WriteString(m) }
 	add2 := func(m, alt string) { pri.WriteString(m); sec.WriteString(alt) }
-	done := func() bool { return pri.Len() >= maxCode && sec.Len() >= maxCode }
 
 	cur := 0
 
@@ -41,7 +43,7 @@ func doubleMetaphone(w []byte) (primary, secondary string) {
 		cur = 1
 	}
 
-	for cur < n && !done() {
+	for cur < n && (pri.Len() < maxCode || sec.Len() < maxCode) {
 		switch c := w[cur]; c {
 
 		case 'A', 'E', 'I', 'O', 'U', 'Y':
@@ -303,7 +305,7 @@ func doubleMetaphone(w []byte) (primary, secondary string) {
 		case 'J':
 			// Spanish "jose", "san jacinto"
 			if stringAt(w, cur, 4, "JOSE") || stringAt(w, 0, 4, "SAN ") {
-				if (cur == 0 && getAt(w, cur+4) == ' ') || stringAt(w, 0, 4, "SAN ") {
+				if (cur == 0 && getAt(w, cur+4) == ' ') || len(w) == 4 || stringAt(w, 0, 4, "SAN ") {
 					add("H")
 				} else {
 					add2("J", "H")
@@ -614,9 +616,8 @@ func truncate(s string) string {
 // isSlavoGermanic reports the Slavic/Germanic heuristic that steers several rules:
 // the word contains W, K, "CZ", or "WITZ".
 func isSlavoGermanic(w []byte) bool {
-	s := string(w)
-	return strings.IndexByte(s, 'W') >= 0 || strings.IndexByte(s, 'K') >= 0 ||
-		strings.Contains(s, "CZ") || strings.Contains(s, "WITZ")
+	return bytes.IndexByte(w, 'W') >= 0 || bytes.IndexByte(w, 'K') >= 0 ||
+		bytes.Contains(w, []byte("CZ")) || bytes.Contains(w, []byte("WITZ"))
 }
 
 // getAt returns the byte at i, or 0 when i is out of range, so position rules can
